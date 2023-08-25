@@ -1,6 +1,6 @@
 import React from 'react';
-import './Card.css';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const StyledCard = styled.div`
   width: 290px;
@@ -21,34 +21,37 @@ const StyledCardInfo = styled.div`
 
 const Card = ({ pokemon }) => {
   // console.log('pokemon', pokemon);
+
   return (
-    <StyledCard>
-      <div className="cardImg">
-        <img src={pokemon.sprites.front_default} alt="" />
-      </div>
-      <StyledCardName>{pokemon.name}</StyledCardName>
-      <div className="cardType">
-        <div>タイプ</div>
-        {pokemon.types.map((type) => {
-          return (
-            <div key={type.type.name}>
-              <span className="typeName">{type.type.name}</span>
-            </div>
-          );
-        })}
-      </div>
-      <StyledCardInfo>
-        <div className="cardData">
-          <p>重さ：{pokemon.weight}</p>
+    <Link to={`/pokemon/${pokemon.id}`}>
+      <StyledCard>
+        <div className="cardImg">
+          <img src={pokemon.sprites.front_default} alt="" />
         </div>
-        <div className="cardData">
-          <p>高さ：{pokemon.height}</p>
+        <StyledCardName>{pokemon.name}</StyledCardName>
+        <div className="cardType">
+          <div>タイプ</div>
+          {pokemon.types.map((type) => {
+            return (
+              <div key={type.type.name}>
+                <span className="typeName">{type.type.name}</span>
+              </div>
+            );
+          })}
         </div>
-        <div className="cardData">
-          <p>アビリティ：{pokemon.abilities[0].ability.name}</p>
-        </div>
-      </StyledCardInfo>
-    </StyledCard>
+        <StyledCardInfo>
+          <div className="cardData">
+            <p>重さ：{pokemon.weight}</p>
+          </div>
+          <div className="cardData">
+            <p>高さ：{pokemon.height}</p>
+          </div>
+          <div className="cardData">
+            <p>アビリティ：{pokemon.abilities[0].ability.name}</p>
+          </div>
+        </StyledCardInfo>
+      </StyledCard>
+    </Link>
   );
 };
 
