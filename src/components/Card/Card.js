@@ -13,45 +13,53 @@ const StyledCardName = styled.h3`
   font-size: 24px;
   margin-bottom: 10px;
   margin-top: 0;
+  color: black;
+  text-decoration: none;
 `;
 
 const StyledCardInfo = styled.div`
   text-align: center;
+  color: black;
 `;
-
+const StyledCardType = styled.div``;
+const StyledCardData = styled.div``;
+const StyledCardText = styled.p``;
 const Card = ({ pokemon }) => {
   // console.log('pokemon', pokemon);
 
   return (
-    <Link to={`/pokemon/${pokemon.id}`}>
-      <StyledCard>
+    <StyledCard>
+      <Link to={`/pokemon/${pokemon.id}`}>
         <div className="cardImg">
           <img src={pokemon.sprites.front_default} alt="" />
         </div>
         <StyledCardName>{pokemon.name}</StyledCardName>
-        <div className="cardType">
-          <div>タイプ</div>
-          {pokemon.types.map((type) => {
-            return (
-              <div key={type.type.name}>
-                <span className="typeName">{type.type.name}</span>
-              </div>
-            );
-          })}
-        </div>
         <StyledCardInfo>
-          <div className="cardData">
-            <p>重さ：{pokemon.weight}</p>
-          </div>
-          <div className="cardData">
-            <p>高さ：{pokemon.height}</p>
-          </div>
-          <div className="cardData">
-            <p>アビリティ：{pokemon.abilities[0].ability.name}</p>
-          </div>
+          <StyledCardType>
+            <p>タイプ</p>
+            {pokemon.types.map((type) => {
+              return (
+                <div key={type.type.name}>
+                  <span className="typeName">{type.type.name}</span>
+                </div>
+              );
+            })}
+          </StyledCardType>
+
+          <StyledCardData>
+            <StyledCardText>重さ：{pokemon.weight}</StyledCardText>
+          </StyledCardData>
+          <StyledCardData>
+            <StyledCardText>高さ：{pokemon.height}</StyledCardText>
+          </StyledCardData>
+          <StyledCardData>
+            <StyledCardText>
+              アビリティ：{pokemon.abilities[0].ability.name}
+            </StyledCardText>
+          </StyledCardData>
         </StyledCardInfo>
-      </StyledCard>
-    </Link>
+      </Link>
+    </StyledCard>
   );
 };
 
