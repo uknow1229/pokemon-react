@@ -1,10 +1,5 @@
 
-
-
-https://github.com/uknow1229/pokemon-react/assets/86299044/d500f719-5cfe-422c-853a-66a0b292dfcf
-
-
-
+https://github.com/uknow1229/pokemon-react/assets/86299044/5b2ab3fa-ae7b-4fd1-8741-96cf49bdddb3
 
 
 # Getting Started with Create React App
